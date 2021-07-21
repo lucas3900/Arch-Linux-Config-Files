@@ -102,5 +102,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # ALIASES
 alias ls='exa -lah --color=always --group-directories-first --git --no-user --icons'
+alias cleanSystem='yay -Rns $(yay -Qtdq)' # uninstall unused packages 
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
 neofetch
