@@ -84,7 +84,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch Firefox"),
-    Key([mod], "r", lazy.spawn("rofi -show run -width 100 -dpi 1 -location 2"), desc="Launch rofi"),
+    Key([mod], "r", lazy.spawn("rofi -lines 1 -show run -columns 20 -width 100 -location 2"), desc="Launch rofi"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
 
     # Toggle between different layouts as defined below
@@ -93,7 +93,6 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
-    #Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Mute, Increase, and Decrease Volume
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")), 
@@ -165,7 +164,7 @@ def getWeather():
 
 
 def launchBlueman():
-    qtile.cmd_spawn(terminal + ' -e bluetoothctl')
+    qtile.cmd_spawn('blueman-manager')
 
 
 def launchHtop():
