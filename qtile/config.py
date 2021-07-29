@@ -39,7 +39,7 @@ from systemInfo import *
 
 mod = "mod4"
 terminal = 'alacritty'
-
+browser = 'qutebrowser'
 
 keys = [
     # Switch between windows in current stack pane
@@ -83,9 +83,10 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn("firefox"), desc="Launch Firefox"),
+    Key([mod], "f", lazy.spawn(browser), desc="Launch Browser"),
     Key([mod], "r", lazy.spawn("rofi -lines 1 -show run -columns 20 -width 100 -location 2"), desc="Launch rofi"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
+    Key([mod], "c", lazy.spawn("code"), desc="Launch vs-code"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -156,11 +157,11 @@ def updatePackages():
 
 
 def launchCalendar():
-    qtile.cmd_spawn('firefox google.com/calendar')
+    qtile.cmd_spawn(browser + 'google.com/calendar')
 
 
 def getWeather():
-    qtile.cmd_spawn('firefox https://www.google.com/search?client=firefox-b-1-d&q=weather')
+    qtile.cmd_spawn(browser + "google.com/search?q=weather")
 
 
 def launchBlueman():
@@ -180,7 +181,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-                    padding = 10,
+                    padding = 3,
                     foreground = colors[2],
                     background = colors[0]
                 ),
@@ -302,7 +303,7 @@ screens = [
                     linewidth = 7
                 ),
                 widget.TextBox(
-                    text="Mem:",
+                    text="RAM:",
                     fontsize=18,
                     padding=0,
                     foreground = colors[2],
@@ -344,7 +345,7 @@ screens = [
                 ),
             ],
             35,
-            opacity=.9,
+            opacity=.95,
         ),
     ),
 ]
