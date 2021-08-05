@@ -85,6 +85,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn(browser), desc="Launch Browser"),
     Key([mod], "r", lazy.spawn("rofi -lines 1 -show run -columns 20 -width 100 -location 2"), desc="Launch rofi"),
+    Key([mod], "p", lazy.spawn('bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'), desc="Launch password"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
     Key([mod], "c", lazy.spawn("code"), desc="Launch vs-code"),
 

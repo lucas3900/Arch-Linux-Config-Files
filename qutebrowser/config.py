@@ -148,7 +148,42 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
+
+
+"""
+MY CONFIG SETTINGS
+"""
+
+# COLORS
+# Background color of unselected odd tabs.
+c.colors.tabs.odd.bg = '#282c34'
+
+# Background color of unselected even tabs.
+c.colors.tabs.even.bg = '#282c34'
+
+c.colors.tabs.selected.odd.bg = '#434758'
+
+# Background color of selected even tabs.
+c.colors.tabs.selected.even.bg = '#434758'
+
+# Background color of the statusbar.
+c.colors.statusbar.normal.bg = '#282c34'
+
+#CONFIGURATION
 config.set('content.notifications.enabled', False, 'https://www.netflix.com')
+
+# Show a scrollbar.
+#c.scrolling.bar = 'always'
+
+# Open new tabs (middleclick/ctrl+click) in the background.
+c.tabs.background = True
+
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+c.input.insert_mode.auto_load = True
+
+# Leave insert mode if a non-editable element is clicked.
+c.input.insert_mode.auto_leave = True
 
 # set home page
 c.url.default_page = '/home/lucas/documents/configFiles/homepage/homepage.html'
@@ -173,5 +208,3 @@ config.bind('<Ctrl-left>', 'tab-prev')
 config.bind('<Ctrl-right>', 'tab-next')
 config.bind('<Ctrl-r>', 'reload')
 
-
-# by default f brings up links

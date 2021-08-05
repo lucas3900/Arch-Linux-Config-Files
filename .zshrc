@@ -48,9 +48,17 @@ fi
 
 # ALIASES
 alias ls='exa -lah --color=always --group-directories-first --git --no-user --icons'
-alias cleanSystem='yay -Rns $(yay -Qtdq)' # uninstall unused packages 
+# delete orphaned programs
+alias cleanSystem='yay -Rns $(yay -Qtdq)'
+# ask before deleteing/ovewriting
 alias mv='mv -i'
-alias rm='rm -i'
+# launch bitwarden rofi client with my rofi settings
+alias bwmenu='bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'
+# generate password and copy it to clipboard
+alias password='bw generate -ulns --length 12 | xclip -selection clipboard'
+
+# environment variables
+export BW_SESSION="dzbj6BR6/NXu3fGw5UtaH9kc0S93LMwaevylHWYMJ4/RKUP7dzUzu/Mrp0I7gwi6CmeOX7ngeo8OS5RNUrQ/aA=="
 
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
