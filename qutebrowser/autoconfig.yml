@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  content.geolocation:
+    https://www.google.com: false
   statusbar.show:
     global: never
   tabs.show:

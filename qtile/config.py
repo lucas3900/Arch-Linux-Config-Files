@@ -87,8 +87,6 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -lines 1 -show run -columns 20 -width 100 -location 2"), desc="Launch rofi"),
     Key([mod], "p", lazy.spawn('bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'), desc="Launch password"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
-    Key([mod], "c", lazy.spawn("code"), desc="Launch vs-code"),
-
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -118,7 +116,6 @@ for i in groups:
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
         #     desc="move focused window to group {}".format(i.name)),
     ])
-
 
 layoutDefaults = {
     "margin": 6,
@@ -158,11 +155,11 @@ def updatePackages():
 
 
 def launchCalendar():
-    qtile.cmd_spawn(browser + 'google.com/calendar')
+    qtile.cmd_spawn(browser + ' --target=window google.com/calendar')
 
 
 def getWeather():
-    qtile.cmd_spawn(browser + "google.com/search?q=weather")
+    qtile.cmd_spawn(browser + " --target=window google.com/search?q=weather")
 
 
 def launchBlueman():
@@ -264,6 +261,7 @@ screens = [
                     background=colors[4], 
                     mouse_callbacks={'Button1': updatePackages}
                 ),
+
                 widget.GenPollText(
                     func=getNumUpdates, 
                     update_interval=300, 
@@ -385,7 +383,6 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting

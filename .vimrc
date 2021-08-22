@@ -22,3 +22,21 @@ set lazyredraw
 
 " autocomplete for commands
 set wildmenu
+
+" paste please
+set paste
+
+" remove vi compatibility
+set nocompatible
+
+" show column number
+set ruler
+
+" distinguish file types
+filetype plugin on
+
+" Vim plugins
+call plug#begin('~/.vim/plugged')
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'davidhalter/jedi-vim',
+call plug#end()

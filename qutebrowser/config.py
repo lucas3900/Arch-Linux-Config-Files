@@ -186,20 +186,21 @@ c.input.insert_mode.auto_load = True
 c.input.insert_mode.auto_leave = True
 
 # set home page
-c.url.default_page = '/home/lucas/documents/configFiles/homepage/homepage.html'
-c.url.start_pages = '/home/lucas/documents/configFiles/homepage/homepage.html'
+c.url.default_page = '/home/lucas/configFiles/homepage/homepage.html'
+c.url.start_pages = '/home/lucas/configFiles/homepage/homepage.html'
 
 # set search engines
 c.url.searchengines = {
     'DEFAULT': 'https://www.google.com/search?q={}', 
     'am': 'https://www.amazon.com/s?k={}', 
-    'yt': 'https://www.youtube.com/results?search_query={}'}
+    'yt': 'https://www.youtube.com/results?search_query={}'
+}
 
 
 # NORMAL MODE BINDINGS
 
 # toggle tab and url bars
-config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+ config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 config.bind('t', 'set-cmd-text -s :open -t') # open url in new tab
 config.bind('l', ':hint all tab')
 config.bind('<Ctrl-up>', 'forward')

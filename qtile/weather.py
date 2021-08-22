@@ -1,7 +1,7 @@
 import requests
 
 OPEN_WEATHER_API_KEY = "22b8c2bc63839bf5b315bf9b80141b40"
-AT_HOME = True
+AT_HOME = False
 
 
 def getWeather():

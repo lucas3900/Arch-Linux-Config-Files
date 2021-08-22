@@ -53,5 +53,5 @@ xset s 3600 3600
 xset dpms 3600 3600 3600
 
 picom &
-feh --bg-max --randomize ~/documents/pictures/wallpapers* &
+feh --bg-max --randomize ~/pictures/wallpapers* &
 /usr/bin/qtile start
