@@ -34,9 +34,3 @@ set ruler
 
 " distinguish file types
 filetype plugin on
-
-" Vim plugins
-call plug#begin('~/.vim/plugged')
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'davidhalter/jedi-vim',
-call plug#end()
