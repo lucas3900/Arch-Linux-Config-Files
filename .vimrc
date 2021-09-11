@@ -38,5 +38,21 @@ filetype plugin on
 " Vim plugins
 call plug#begin('~/.vim/plugged')
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'davidhalter/jedi-vim',
+    Plug 'davidhalter/jedi-vim'
+	" Plug 'neomake/neomake'
+	Plug 'vim-syntastic/syntastic'
 call plug#end()
+
+" syntastic settings
+let g:syntastic_cpp_checkers=['clang_check', 'avrgcc', 'clang_tidy']
+let g:syntastic_python_checkers=['python', 'bandit', 'pylint']
+" set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" call neomake#configure#automake('nrwi', 500)
+
+let g:syntastic_quiet_messages = {"regex": 'invalid-name\|trailing-whitespace\|missing-\w*-docstring'} 

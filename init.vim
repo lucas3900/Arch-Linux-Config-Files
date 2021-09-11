@@ -34,3 +34,11 @@ set ruler
 
 " distinguish file types
 filetype plugin on
+
+call plug#begin()
+	Plug 'neomake/neomake'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+call plug#end()
+
+call neomake#configure#automake('nrwi', 500)

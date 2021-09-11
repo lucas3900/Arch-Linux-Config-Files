@@ -60,6 +60,7 @@ alias password='bw generate -ulns --length 12 | xclip -selection clipboard'
 # environment variables
 export BW_SESSION="dzbj6BR6/NXu3fGw5UtaH9kc0S93LMwaevylHWYMJ4/RKUP7dzUzu/Mrp0I7gwi6CmeOX7ngeo8OS5RNUrQ/aA=="
 export BROWSER='qutebrowser'
+export PATH=/home/lucas/.local/bin:$PATH
 
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS

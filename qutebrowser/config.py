@@ -1,4 +1,4 @@
-# NOTE: config.py is intended for advanced users who are comfortable
+#NOTE: config.py is intended for advanced users who are comfortable
 # with manually migrating the config file on qutebrowser upgrades. If
 # you prefer, you can also configure qutebrowser using the
 # :set/:bind/:config-* commands without having to write a config.py
@@ -194,6 +194,8 @@ c.url.searchengines = {
     'yt': 'https://www.youtube.com/results?search_query={}'
 }
 
+# unbinding
+config.unbind('d', mode='normal')
 
 # NORMAL MODE BINDINGS
 

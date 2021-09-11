@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- EXCLUDES FINANCIAL LINKS FOR GIT HUB -->
+<!-- includes financial links for personal use -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -134,9 +134,6 @@
     <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
-    <div id="search">
-        <input id="search-field" type="text" name="search-field"/>
-    </div>
     <div class="container">
         <div id="clock"></div>
         <div class="weather-container">
@@ -190,22 +187,15 @@
                     <a class="bookmark" href="https://blackboard.hamilton.edu/webapps/login/" target="_self">Blackboard</a>
                     <a class="bookmark" href="https://www.gradescope.com/" target="_self">Gradescope</a>
                     <a class="bookmark" href="https://webadvisor.hamilton.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=2586590138" target="_self">Webadvisor</a>
-                    <a class="bookmark" href="https://www.hamilton.edu/campuslife/where-to-eat/dining-hours" target="_self">Ham Food</a>
-                    <a class="bookmark" href="https://piazza.com/" target="_self">Piazza</a>
+                    <a class="bookmark" href="https://discord.com/channels/@me" target="_self">Discord</a>
+                    <a class="bookmark" href="https://app.slack.com/client/T02CDQJFJ9Y/C02DSGJUMU6" target="_self">Slack</a>
+                    <a class="bookmark" href="https://www.onenote.com/notebooks?auth=2&nf=1" target="_self">OneNote</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Search on enter key event
-        document.getElementById("search-field").addEventListener("keydown",  event => { 
-            if (event.keyCode === 13) {
-                var val = document.getElementById("search-field").value;
-                // open google search in current tab
-                window.location.href = "https://google.com/search?q=" + val;
-            }
-        });
         // Get current time and format
         getTime = () => {
             let date = new Date(),
@@ -244,17 +234,6 @@
                 document.getElementById("clock").innerHTML = getTime();
             },100);
         }
-
-        document.addEventListener("keydown", event => {
-            if (event.keyCode == 32) {          // Spacebar code to open search
-                document.getElementById('search').style.display = 'flex';
-                document.getElementById('search-field').focus();
-            } else if (event.keyCode == 27) {   // Esc to close search
-                document.getElementById('search-field').value = '';
-                document.getElementById('search-field').blur();
-                document.getElementById('search').style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>
