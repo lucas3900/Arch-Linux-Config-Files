@@ -6,7 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://calendar.google.com: true
-  content.register_protocol_handler:
-    https://calendar.google.com?cid=%25s: true
+  content.geolocation:
+    https://www.google.com: false

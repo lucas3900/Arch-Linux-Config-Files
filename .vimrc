@@ -23,9 +23,6 @@ set lazyredraw
 " autocomplete for commands
 set wildmenu
 
-" paste please
-set paste
-
 " remove vi compatibility
 set nocompatible
 
