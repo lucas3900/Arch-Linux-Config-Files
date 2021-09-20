@@ -52,6 +52,9 @@ fi
 xset s 3600 3600
 xset dpms 3600 3600 3600
 
+# map caps lock to escape
+setxkbmap -option caps:escape
+
 picom &
 feh --bg-max --randomize ~/pictures/wallpapers* &
 /usr/bin/qtile start
