@@ -150,6 +150,7 @@ colors = [["#282c34", "#282c34"], # panel background
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
+
 def updatePackages():
     qtile.cmd_spawn(terminal + ' -e yay -Syu')
 

@@ -48,9 +48,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# set screen timeout to 1 hour
-xset s 3600 3600
-xset dpms 3600 3600 3600
+# set screen timeout to 20 min
+xset s 1200 1200
+xset dpms 1200 1200 1200 
 
 # map caps lock to escape
 setxkbmap -option caps:escape

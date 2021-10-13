@@ -9,7 +9,7 @@
 #   qute://help/settings.html
 
 # Change the argument to True to still load settings configured via autoconfig.yml
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -169,6 +169,7 @@ c.colors.statusbar.normal.bg = '#282c34'
 
 #CONFIGURATION
 config.set('content.notifications.enabled', False, 'https://www.netflix.com')
+config.set('content.notifications.enabled', False, 'https://calendar.google.com?cid=%25s')
 
 # Show a scrollbar.
 #c.scrolling.bar = 'always'
