@@ -53,3 +53,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 " call neomake#configure#automake('nrwi', 500)
 let g:syntastic_quiet_messages = {"regex": 'invalid-name\|trailing-whitespace\|missing-\w*-docstring'} 
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
