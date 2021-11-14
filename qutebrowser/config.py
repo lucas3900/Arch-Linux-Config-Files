@@ -177,6 +177,9 @@ config.set('content.notifications.enabled', False, 'https://calendar.google.com?
 # Open new tabs (middleclick/ctrl+click) in the background.
 c.tabs.background = True
 
+# disable audio indicator for tabs
+c.tabs.title.format = "{index}: {current_title}"
+
 # Automatically enter insert mode if an editable element is focused
 # after loading the page.
 c.input.insert_mode.auto_load = True

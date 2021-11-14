@@ -55,9 +55,9 @@ keys = [
         desc="Move window up in current stack "),
 
     # Increase and Decrease size of window
-    Key([mod], "Up", lazy.layout.grow(), lazy.layout.increase_nmaster(),
+    Key([mod], "Up", lazy.layout.grow(), lazy.layout.increase_ration(),
         desc="Increase focused window"),
-    Key([mod], "Down", lazy.layout.shrink(), lazy.layout.decrease_nmaster(),
+    Key([mod], "Down", lazy.layout.shrink(), lazy.layout.decrease_ratio(),
         desc="Decrease focused window"),
 
     # Normalize layout
@@ -87,6 +87,7 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -lines 2 -show run -show-icons -columns 20 -width 100 -location 2"), desc="Launch rofi"),
     Key([mod], "p", lazy.spawn('bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'), desc="Launch password"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
+    Key([mod], "v", lazy.spawn("code"), desc="Launch vs-code"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -100,7 +101,7 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
 ]
 
-groups = [Group(i, layout="MonadTall") for i in "12345"]
+groups = [Group(i, layout="monadtall") for i in "12345"]
 
 for i in groups:
     keys.extend([

@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  content.geolocation:
+    https://www.google.com: false
   content.pdfjs:
     global: true
   content.register_protocol_handler:
