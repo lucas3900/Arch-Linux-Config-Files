@@ -8,6 +8,9 @@ config_version: 2
 settings:
   content.geolocation:
     https://www.google.com: false
+    https://www.hulu.com: false
+  content.notifications.enabled:
+    https://analyticsindiamag.com: false
   content.pdfjs:
     global: true
   content.register_protocol_handler:
