@@ -9,6 +9,7 @@ settings:
   content.geolocation:
     https://www.google.com: false
     https://www.hulu.com: false
+    https://www.samsung.com: false
   content.notifications.enabled:
     https://analyticsindiamag.com: false
   content.pdfjs:

@@ -57,9 +57,10 @@ alias bwmenu='bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'
 # generate password and copy it to clipboard
 alias password='bw generate -ulns --length 12 | xclip -selection clipboard'
 alias open='xdg-open'
+# enable hardware acceleration in qutebrowser
+alias qutebrowser='qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4'
 
 # environment variables
-export BW_SESSION="dzbj6BR6/NXu3fGw5UtaH9kc0S93LMwaevylHWYMJ4/RKUP7dzUzu/Mrp0I7gwi6CmeOX7ngeo8OS5RNUrQ/aA=="
 export BROWSER='qutebrowser'
 export PATH=/home/lucas/.local/bin:$PATH
 

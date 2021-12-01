@@ -39,7 +39,7 @@ from systemInfo import *
 
 mod = "mod4"
 terminal = 'alacritty'
-browser = 'chromium'
+browser = 'qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4'
 
 keys = [
     # Switch between windows in current stack pane
@@ -110,12 +110,12 @@ for i in groups:
             desc="Switch to group {}".format(i.name)),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+        #    desc="Switch to & move focused window to group {}".format(i.name)),
         # Or, use below if you prefer not to switch to that group.
         # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            desc="move focused window to group {}".format(i.name)),
     ])
 
 layoutDefaults = {
