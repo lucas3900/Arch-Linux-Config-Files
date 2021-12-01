@@ -64,6 +64,12 @@ alias qutebrowser='qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-g
 export BROWSER='qutebrowser'
 export PATH=/home/lucas/.local/bin:$PATH
 
+function force_pull() {
+	git fetch --all
+	git branch backup
+	git reset --hard origin/$1
+}
+
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
 
