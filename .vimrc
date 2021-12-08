@@ -1,7 +1,7 @@
 " fix tabs and autoindent
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 set ai
 
 " syntax highlighting

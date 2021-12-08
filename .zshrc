@@ -70,6 +70,12 @@ function force_pull() {
 	git reset --hard origin/$1
 }
 
+function commit() {
+    git add .
+    git commit -m $1
+    git push origin $2
+}
+
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
 

@@ -201,6 +201,11 @@ c.url.searchengines = {
 # unbinding
 config.unbind('d', mode='normal')
 
+# set qutebrowser to use ranger as file picker
+config.set("fileselect.handler", "external")
+config.set("fileselect.single_file.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefile', '{}'])
+config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefiles', '{}'])
+
 # NORMAL MODE BINDINGS
 
 # toggle tab and url bars
