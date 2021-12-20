@@ -59,6 +59,8 @@ alias password='bw generate -ulns --length 12 | xclip -selection clipboard'
 alias open='xdg-open'
 # enable hardware acceleration in qutebrowser
 alias qutebrowser='qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4'
+alias firmware='systemctl reboot --firmware-setup'
+alias bashtozsh='chsh -s $(which zsh)'
 
 # environment variables
 export BROWSER='qutebrowser'
