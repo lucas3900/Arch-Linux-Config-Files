@@ -1,0 +1,10 @@
+[Unit]
+Description=Backs up server files to local documents
+wants=ServerBackup.timer
+
+[Service]
+Type=simple
+ExecStart=/home/lucas/Documents/coding/bash_scripts/backup-server.sh
+
+[Install]
+WantedBy=multi-user.target

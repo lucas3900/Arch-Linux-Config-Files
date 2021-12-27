@@ -1,5 +1,5 @@
-border_width = 7
-margin = [8, 8]
+border_width = 5
+margin = [5, 5]
 
 default_border_color = "#000000"
 floating_border_color = "#bd93f9"

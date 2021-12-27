@@ -43,7 +43,6 @@ do
   let index=index+1
 done
 
-
 # xrdb -merge ~/.Xresources
 
 # set screen timeout to 20 min

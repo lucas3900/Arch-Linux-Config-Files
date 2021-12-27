@@ -1,0 +1,12 @@
+[Unit]
+Description=Server Backup Timer
+Requires=ServerBackup.service
+
+[Timer]
+# Daily at 4:30AM
+OnCalendar=*-*-* 04:30:00
+Persistent=True
+Unit=ServerBackup.service
+
+[Install]
+WantedBy=timers.target
