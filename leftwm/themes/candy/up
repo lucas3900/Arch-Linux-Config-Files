@@ -21,8 +21,6 @@ if [ -x "$(command -v picom)" ]; then
   #picom --config $HOME/.config/leftwm/themes/current/picom.conf --experimental-backends &> /dev/null &
   #picom &> /dev/null &
   #picom --experimental-backends &> /dev/null &
-elif [ -x "$(command -v compton)" ]; then
-  compton --config $HOME/.config/leftwm/themes/current/compton.conf &> /dev/null &
 fi
 
 # Set the theme.toml config
