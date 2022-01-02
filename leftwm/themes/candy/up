@@ -50,4 +50,6 @@ xset s 1200 1200
 xset dpms 1200 1200 1200 
 
 # map caps lock to escape
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
+xmodmap -e 'clear lock'
+xmodmap -e 'keycode 0x42=Escape'
