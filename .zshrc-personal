@@ -1,43 +1,7 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/home/lucas/.oh-my-zsh"
+##### Aliases, functions and environment variables #####
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# auto update oh-my-zsh
-DISABLE_UPDATE_PROMPT="true"
-
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-COMPLETION_WAITING_DOTS="true"
-
-
-# plugins
-plugins=(
-	git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Place at end of .zshrc:
+   # [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal 
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -61,11 +25,14 @@ alias open='xdg-open'
 alias qutebrowser='qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4'
 alias firmware='systemctl reboot --firmware-setup'
 alias bashtozsh='chsh -s $(which zsh)'
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
 
 # environment variables
 export BROWSER='qutebrowser'
 export PATH=/home/lucas/.local/bin:$PATH
 
+# FUNCTIONS
 function force_pull() {
 	git fetch --all
 	git branch backup
@@ -76,6 +43,33 @@ function commit() {
     git add .
     git commit -m $1
     git push origin $2
+}
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   tar xf $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 # change directory color to purple in ls/exa
