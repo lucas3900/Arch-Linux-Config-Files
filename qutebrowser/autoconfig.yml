@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  content.blocking.method:
+    global: both
   content.geolocation:
     https://www.google.com: false
     https://www.hulu.com: false

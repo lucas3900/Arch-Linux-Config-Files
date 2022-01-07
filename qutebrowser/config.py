@@ -202,9 +202,15 @@ c.url.searchengines = {
 config.unbind('d', mode='normal')
 
 # set qutebrowser to use ranger as file picker
+"""
 config.set("fileselect.handler", "external")
 config.set("fileselect.single_file.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefile', '{}'])
 config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefiles', '{}'])
+"""
+
+# better ad block
+# requires python-adblock package
+config.set("content.blocking.method", "both")
 
 # NORMAL MODE BINDINGS
 
@@ -212,9 +218,9 @@ config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 config.bind('t', 'set-cmd-text -s :open -t') # open url in new tab
 config.bind('l', ':hint all tab')
-config.bind('<Ctrl-up>', 'forward')
-config.bind('<Ctrl-down>', 'back')
-config.bind('<Ctrl-left>', 'tab-prev')
-config.bind('<Ctrl-right>', 'tab-next')
+config.bind('<Ctrl-j>', 'forward')
+config.bind('<Ctrl-k>', 'back')
+config.bind('<Ctrl-h>', 'tab-prev')
+config.bind('<Ctrl-l>', 'tab-next')
 config.bind('<Ctrl-r>', 'reload')
 config.bind('M', 'hint links spawn mpv {hint-url}')
