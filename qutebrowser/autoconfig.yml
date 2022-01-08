@@ -14,6 +14,8 @@ settings:
     https://www.samsung.com: false
   content.notifications.enabled:
     https://analyticsindiamag.com: false
+    https://www.reddit.com: false
+    https://www.youtube.com: false
   content.pdfjs:
     global: true
   content.register_protocol_handler:
