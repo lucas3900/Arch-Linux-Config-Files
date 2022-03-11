@@ -1,2 +1,2 @@
 1. Add 'intel_idle.max_cstate=1' as boot param
-2. 'storage@192.168.1.139:/home/storage/documents /home/lucas/server fuse.sshfs defaults,allow_other,identityfile=/home/lucas/.ssh/id_rsa 0 0' <- bottom of fstab
+2. 'storage@192.168.1.139:/home/storage/documents /home/lucas/server fuse.sshfs defaults,allow_other,identityfile=/home/lucas/.ssh/id_rsa 0 0' <- bottom of fstab or zlogin 
