@@ -53,6 +53,18 @@ key = "XF86XK_AudioLowerVolume"
 
 [[keybind]]
 command = "Execute"
+value = "brillo -A 5 -q"
+modifier = []
+key = "XF86XK_MonBrightnessUp"
+
+[[keybind]]
+command = "Execute"
+value = "brillo -U 5 -q"
+modifier = []
+key = "XF86XK_MonBrightnessDown"
+
+[[keybind]]
+command = "Execute"
 value = "leftwm-command ToggleFullScreen"
 modifier = ["modkey"]
 key = "f"
