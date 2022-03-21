@@ -1,0 +1,6 @@
+// For VSCODE
+// .config/Code/User/keybindings.json
+[
+    { "key": "ctrl+space", "command": "workbench.action.terminal.focus"},
+    { "key": "ctrl+space", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+]
