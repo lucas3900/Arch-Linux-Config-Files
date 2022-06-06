@@ -15,9 +15,7 @@ set ignorecase
 set incsearch
 
 " standard encoding
-set encoding=utf8
-
-" disable unecessary redrawing
+set encoding=utf8 " disable unecessary redrawing
 set lazyredraw
 
 " autocomplete for commands
@@ -35,3 +33,7 @@ filetype plugin on
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" No sounds
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=

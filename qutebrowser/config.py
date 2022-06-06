@@ -188,8 +188,8 @@ c.input.insert_mode.auto_load = True
 c.input.insert_mode.auto_leave = True
 
 # set home page
-c.url.default_page = '/home/lucas/configFiles/homepage/homepage.html'
-c.url.start_pages = '/home/lucas/configFiles/homepage/homepage.html'
+c.url.default_page = '/home/lucas/Arch-Linux-Config-Files/homepage/homepage.html'
+c.url.start_pages = '/home/lucas/Arch-Linux-Config-Files/homepage/homepage.html'
 
 # set search engines
 c.url.searchengines = {

@@ -1,10 +1,10 @@
 import requests
 
+# free API key
 OPEN_WEATHER_API_KEY = "22b8c2bc63839bf5b315bf9b80141b40"
-AT_HOME = False
+AT_HOME = True
 
-
-def getWeather():
+def getWeather() -> str:
     zipcode = "10463"
     if not AT_HOME:
         zipcode = "13323"
