@@ -9,3 +9,6 @@ export XDG_CACHE_HOME=/home/lucas/.cache/
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export HISTFILE="$XDG_STATE_HOME"/zsh/history 
+
+# scaling for QT applications like qutebrowser
+export QT_AUTO_SCREEN_SCALE_FACTOR=1

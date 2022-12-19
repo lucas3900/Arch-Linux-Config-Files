@@ -212,6 +212,9 @@ config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger
 # requires python-adblock package
 config.set("content.blocking.method", "both")
 
+# better scaling for high dpi monitors
+config.set("qt.highdpi", True)
+
 # NORMAL MODE BINDINGS
 
 # toggle tab and url bars
@@ -223,4 +226,6 @@ config.bind('<Ctrl-j>', 'back')
 config.bind('<Ctrl-h>', 'tab-prev')
 config.bind('<Ctrl-l>', 'tab-next')
 config.bind('<Ctrl-r>', 'reload')
+config.bind('<Ctrl-=>', 'zoom-in')
+config.bind('<Ctrl-->', 'zoom-out')
 config.bind('M', 'hint links spawn --detach mpv --ytdl-format="bestvideo*+bestaudio/best" {hint-url}')

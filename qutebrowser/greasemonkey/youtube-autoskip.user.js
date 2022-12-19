@@ -18,7 +18,7 @@ let main = new MutationObserver(() => {
 	const ad = [...document.querySelectorAll('.ad-showing')][0];
 	if (ad) {
 		// Speed up and mute
-		document.querySelector('video').playbackRate = 16;
+		document.querySelector('video').playbackRate = 10;
 		document.querySelector('video').muted = true;
 	}
 })

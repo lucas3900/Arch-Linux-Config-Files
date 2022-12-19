@@ -17,6 +17,8 @@ COLORS = dict(
     gray = "#909090",
     white = "#ffffff",
     black = "#000000",
+    light_green = "#00ff00",
+    red = "#ff0000",
 )
 WIDGET_DEFAULTS = dict(
     font = "Hack Nerd Font Mono",
@@ -86,6 +88,18 @@ def get_widget_sep(padding=40, background="transparent", mouse_callbacks={}):
     )
 
 
+def get_xkill():
+    return [ 
+        widget.TextBox(
+            text="X",
+            fontsize=50,
+            foreground=COLORS["red"],
+            background=COLORS["transparent"],
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(TERMINAL + " --start-as=minimized xkill")}
+        ), 
+    ]
+
+
 def get_group_box(visible_groups=[]):
     return [
         get_left_semicircle("purple"),
@@ -105,10 +119,8 @@ def get_group_box(visible_groups=[]):
             borderwidth = 3,
             active = COLORS["white"],
             inactive = COLORS["gray"],
-            this_current_screen_border = COLORS["purple"],
-            this_screen_border = COLORS["purple"],
-            # other_current_screen_border = colors[0],
-            # other_screen_border = colors[0],
+            this_current_screen_border = COLORS["light_green"],
+            this_screen_border = COLORS["red"],
             highlight_color = COLORS["light_purple"],
             rounded = True,
             highlight_method = "line",
@@ -275,11 +287,14 @@ def get_screen_one():
     return Screen(
         top=bar.Bar(
             [ 
+                *get_xkill(),
+                get_widget_sep(),
                 *get_group_box(visible_groups=["1", "2", "3", "4", "5"]),
                 get_widget_sep(),
                 *get_updates(),
                 get_widget_sep(),
-                *get_net(),
+                #*get_net(),
+                *get_weather(),
                 widget.Spacer(),
                 *get_clock(),
                 widget.Spacer(),
@@ -301,16 +316,16 @@ def get_screen_one():
 
 def get_weather():
     return [
-        get_left_semicircle("green"),
+        get_left_semicircle("orange"),
         widget.GenPollText(
             **WIDGET_DEFAULTS,
             func=weather.getWeather, 
             update_interval=900, 
-            background = COLORS["green"],
+            background = COLORS["orange"],
             padding=10, 
             mouse_callbacks={'Button1': launch_weather}
         ),
-        get_right_semicircle("green")
+        get_right_semicircle("orange")
     ]
 
 
@@ -333,11 +348,14 @@ def get_screen_two():
     return Screen(
         top=bar.Bar(
             [ 
+                *get_xkill(),
+                get_widget_sep(),
                 *get_group_box(visible_groups=["6", "7"]),
                 widget.Spacer(),
-                *get_weather(),
+                *get_clock(),
                 widget.Spacer(),
-                *get_stock_info(),
+                *get_net(),
+                #*get_stock_info(),
             ], 
             60, 
             opacity=1,

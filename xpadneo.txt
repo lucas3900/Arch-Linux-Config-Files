@@ -1,0 +1,38 @@
+1.Enabling uhid
+First we need to enable the UserspaceHID if we don't do that the Controller won't connect properly and begins to connect and disconnect in a cycle and the Xbox Button will keep flashing
+
+All you need to do is edit/create /etc/bluetooth/input.conf with your editor of choice (I prefer nano) In there paste this:
+
+# Enable HID protocol handling in userspace input profile
+# Defaults to false (HIDP handled in HIDP kernel module)
+UserspaceHID=true
+2. Edit the main bluetooth config
+We need to set some settings in the main bluetooth config file so xpadneo will work as intended and we also need to address the input lag Problem all you need to do is editing /etc/bluetooth/main.conf pasting in this:
+
+[General]
+Privacy = device
+JustWorksRepairing = always
+Class = 0x000100
+FastConnectable = true
+
+[LE]
+MinConnectionInterval=7
+MaxConnectionInterval=9
+ConnectionLatency=0
+3. Installing xpadneo
+Install bluez bluez-utils and dkms beforehand
+
+git clone https://github.com/atar-axis/xpadneo.git
+cd xpadneo
+sudo ./install.sh
+
+Afterwards Reboot your system
+4. Pairing the Series Controller with the PC
+sudo bluetoothctl
+scan on    
+(stop the scan as soon as you see that "Xbox Wireless Controller" is popping up)
+scan off (copy the Mac Address of the controller)
+pair <MAC Address you've copied>
+trust <MAC Address you've copied>
+connect <MAC Address you've copied>
+Your controller should vibrate and the xbox button will stay glowing. The controller also will reconnect after a reboot and the Share Button will also work. If you can't pair the controller on linux, boot windows and pair the controller in there then all you need to do is reboot to linux and connect the controller via bluetooth

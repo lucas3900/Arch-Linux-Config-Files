@@ -4,15 +4,15 @@ from libqtile.lazy import lazy
 
 LAYOUT_PARAMS =  {
     "margin": 10,
-    "border_width": 10,
-    "single_border_width": 10,
+    "border_width": 6,
+    "single_border_width": 6,
     "border_focus": "#007fdf"
 }
 MOD = "mod4"
 
 def get_layouts():
     return [
-        layout.MonadTall(**LAYOUT_PARAMS),
+        layout.MonadTall(**LAYOUT_PARAMS, max_ratio=0.9, min_ratio=0.1),
         layout.Matrix(**LAYOUT_PARAMS),
         layout.Floating(),
         layout.VerticalTile(**LAYOUT_PARAMS),
@@ -35,7 +35,10 @@ def get_floating_rules():
         Match(wm_class='maketag'),
         Match(wm_class='branchdialog'),
         Match(wm_class='pinentry'),
-        Match(wm_class='ssh-askpass')
+        Match(wm_class='ssh-askpass'),
+        Match(wm_class='zoom.real '),
+        Match(wm_class='zoom '),
+        Match(title='Save File'),
     ])
 
 

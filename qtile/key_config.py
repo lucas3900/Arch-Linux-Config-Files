@@ -18,13 +18,13 @@ def get_window_keys():
             desc="Move window down in current stack "),
         Key([MOD, "shift"], "k", lazy.layout.shuffle_up(),
             desc="Move window up in current stack "),
-        Key([MOD], "l", lazy.layout.grow(), lazy.layout.increase_ration(),
-            desc="Increase focused window"),
-        Key([MOD], "h", lazy.layout.shrink(), lazy.layout.decrease_ration(),
-            desc="Decrease focused window"),
+        Key([MOD], "l", lazy.layout.grow(), desc="Increase focused window"),
+        Key([MOD], "h", lazy.layout.shrink(), desc="Decrease focused window"),
         Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
         Key([MOD], "q", lazy.window.kill(), desc="Kill focused window"),
-        Key([MOD], "m", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
+        Key([MOD], 'm', lazy.layout.maximize()),
+        Key([MOD], "f", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
+        Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle fullscreen"),
     ]
 
 
@@ -33,8 +33,8 @@ def get_application_keys():
         Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
         Key([MOD], "w", lazy.spawn(BROWSER), desc="Launch Browser"),
         Key([MOD], "c", lazy.spawn("code"), desc="Launch VS-Code"),
-        Key([MOD], "x", lazy.spawn("i3lockmore  --image-fill /home/lucas/Arch-Linux-Config-Files/lockscreen.png --lock-icon"), desc="Lock Screen"),
-        Key([MOD], "r", lazy.spawn("rofi -lines 2 -show run -show-icons -columns 20 -width 100 -location 2"), desc="Launch rofi"),
+        Key([MOD], "x", lazy.spawn("sh /home/lucas/Arch-Linux-Config-Files/bash_scripts/rofi-power-menu.sh"), desc="Lock Screen"),
+        Key([MOD], "r", lazy.spawn("rofi -lines 2 -show run -show-icons -columns 4 -width 50 -location 0 -opacity 75"), desc="Launch rofi"),
         Key([MOD], "p", lazy.spawn('bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'), desc="Launch password"),
         Key([MOD], "s", lazy.spawn("steam"), desc="Launch Steam"),
     ]
