@@ -32,7 +32,8 @@ def get_application_keys():
     return [
         Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
         Key([MOD], "w", lazy.spawn(BROWSER), desc="Launch Browser"),
-        Key([MOD], "c", lazy.spawn("code"), desc="Launch VS-Code"),
+        # Key([MOD], "c", lazy.spawn("code"), desc="Launch VS-Code"),
+        Key([MOD], "e", lazy.spawn("emacsclient -a '' -c"), desc="Launch emacs"),
         Key([MOD], "x", lazy.spawn("sh /home/lucas/Arch-Linux-Config-Files/bash_scripts/rofi-power-menu.sh"), desc="Lock Screen"),
         Key([MOD], "r", lazy.spawn("rofi -lines 2 -show run -show-icons -columns 4 -width 50 -location 0 -opacity 75"), desc="Launch rofi"),
         Key([MOD], "p", lazy.spawn('bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'), desc="Launch password"),

@@ -32,6 +32,7 @@ alias bashtozsh='chsh -s $(which zsh)'
 alias grep='grep --color=auto'
 alias startvirtnet='sudo virsh net-start default'
 alias hx='helix'
+alias emacs="emacsclient -a '' -c"
 
 # environment variables
 export PATH=/home/lucas/.local/bin:$PATH
