@@ -43,6 +43,13 @@ export KERAS_HOME="${XDG_STATE_HOME}/keras"
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
+# Enable Ray Tracing in Steam
+export PROTON_HIDE_NVIDIA_GPU=0
+export PROTON_ENABLE_NVAPI=1
+export VKD3D_CONFIG=dxr,dxr11
+export PROTON_ENABLE_NGX_UPDATER=1
+
+
 # FUNCTIONS
 function force_pull() {
 	git fetch --all

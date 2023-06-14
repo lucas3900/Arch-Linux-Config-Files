@@ -1,7 +1,7 @@
 " fix tabs and autoindent
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 set ai
 
 " syntax highlighting
@@ -34,11 +34,11 @@ set ruler
 
 " distinguish file types
 filetype plugin on
+" auto indent with file types
+filetype plugin indent on 
 
-call plug#begin()
-	Plug 'neomake/neomake'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-call plug#end()
+" highlight current current cursor line
+set cursorline 
 
-call neomake#configure#automake('nrwi', 500)
+" no swap file
+set noswapfile
