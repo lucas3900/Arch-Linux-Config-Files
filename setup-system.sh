@@ -103,7 +103,7 @@ echo "\t- Launch lxapperance and change themes/cursors"
 sleep 1
 
 while true; do
-    read -p "Do you want to reboot to get your dtos? [Y/n] " yn
+    read -p "Do you want to reboot into the system? [Y/n] " yn
     case $yn in
         [Yy]* ) reboot;;
         [Nn]* ) break;;
