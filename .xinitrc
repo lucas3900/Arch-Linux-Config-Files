@@ -47,5 +47,5 @@ nm-applet &
 exec /usr/bin/lxqt-policykit-agent &
 exec /usr/bin/dunst &
 feh --no-fehbg --bg-fill  /home/lucas/.config/qtile/background.jpg &
-picom --config /home/lucas/.config/jonaburg-picom.conf &
+picom --config /home/lucas/Arch-Linux-Config-Files/picom.conf &
 exec qtile start
