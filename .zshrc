@@ -1,10 +1,11 @@
 ##### Aliases, functions and environment variables #####
 
-# Place at end of .zshrc:
-   # [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal 
-
 unsetopt BEEP
+setopt appendhistory
+autoload -Uz compinit
+compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -34,27 +35,11 @@ alias startvirtnet='sudo virsh net-start default'
 alias hx='helix'
 alias emacs="emacsclient -a '' -c"
 
-# environment variables
-export PATH=/home/lucas/.local/bin:$PATH
-export PATH=/home/lucas/.local/share/gem/ruby/3.0.0/bin:$PATH
-#export PATH=$PATH:$HOME/.emacs.d/bin
-export PYTHONSTARTUP="/etc/python/pythonrc"
-export KERAS_HOME="${XDG_STATE_HOME}/keras"
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-
-# Enable Ray Tracing in Steam
-export PROTON_HIDE_NVIDIA_GPU=0
-export PROTON_ENABLE_NVAPI=1
-export VKD3D_CONFIG=dxr,dxr11
-export PROTON_ENABLE_NGX_UPDATER=1
-
-
 # FUNCTIONS
 function force_pull() {
-	git fetch --all
-	git branch backup
-	git reset --hard origin/$1
+    git fetch --all
+    git branch backup
+    git reset --hard origin/$1
 }
 
 function commit() {
@@ -92,6 +77,10 @@ ex ()
 
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
+
+eval "$(starship init zsh)"
+source ~/config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # run neofetch on startup because I'm cool
 neofetch

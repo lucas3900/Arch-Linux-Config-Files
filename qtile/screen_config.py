@@ -5,7 +5,7 @@ from libqtile import qtile
 import subprocess
 
 import weather
-import stock_info
+# import stock_info
 
 COLORS = dict(
     transparent = "#00000000",
