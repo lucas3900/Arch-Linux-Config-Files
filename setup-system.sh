@@ -70,7 +70,7 @@ if [ ! -d ~/.config/zsh/zsh-syntax-highlighting ]; then
 fi
 
 # enable systemd services
-services=( "NetworkManager" "docker" "bluetooth" "pipewire" )
+services=( "NetworkManager" "docker" "bluetooth" )
 for service in "${services[@]}" 
 do
     :
