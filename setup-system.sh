@@ -43,13 +43,10 @@ then
 fi
 
 # install base system utils
-$AUR_WRAPPER -S --noconfirm xorg networkmanager kitty qtile python-psutil brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber
+$AUR_WRAPPER -S --noconfirm xorg networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber
 
 # system fonts and themes
-$AUR_WRAPPER -S noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk
-
-# install python dependencies for desktop
-pip install requests
+$AUR_WRAPPER -S --noconfirm noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk
 
 # ask to install nvidia
 while true; do
