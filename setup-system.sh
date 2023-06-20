@@ -43,7 +43,7 @@ then
 fi
 
 # install base system utils
-$AUR_WRAPPER -S --noconfirm xorg networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber
+$AUR_WRAPPER -S --noconfirm xorg-server xorg-xinit networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber
 
 # system fonts and themes
 $AUR_WRAPPER -S --noconfirm noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk
@@ -68,6 +68,7 @@ fi
 if [ ! -d ~/.config/zsh/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 fi
+sudo usermod -aG tty,audio,video $USER
 
 # enable systemd services
 services=( "NetworkManager" "docker" "bluetooth" )
@@ -78,7 +79,7 @@ do
 done
 
 # sym link config files
-home_dir_files=( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" )
+home_dir_files=( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" ".zshrc" )
 cd
 for file in "${home_dir_files[@]}" 
 do
