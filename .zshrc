@@ -79,8 +79,8 @@ ex ()
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
 
 eval "$(starship init zsh)"
-source ~/config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # run neofetch on startup because I'm cool
 neofetch
