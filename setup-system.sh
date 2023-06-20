@@ -33,11 +33,14 @@ sudo pacman -Syu --noconfirm perl
 grep "#ParallelDownloads" /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
 
 # install AUR helper
-sudo pacman -S --needed --noconfirm base-devel
-cd ~/Downloads
-git clone https://aur.archlinux.org/$AUR_WRAPPER.git
-cd $AUR_WRAPPER
-makepkg -si
+if ! command -v $AUR_HELPER &> /dev/null
+then
+    sudo pacman -S --needed --noconfirm base-devel
+    cd ~/Downloads
+    git clone https://aur.archlinux.org/$AUR_WRAPPER.git
+    cd $AUR_WRAPPER
+    makepkg -si
+fi
 
 # install base system utils
 $AUR_WRAPPER -S --noconfirm xorg networkmanager kitty qtile python-psutil brave rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber
