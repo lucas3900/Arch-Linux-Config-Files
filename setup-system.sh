@@ -33,7 +33,7 @@ sudo pacman -Syu --noconfirm perl
 grep "#ParallelDownloads" /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
 
 # install AUR helper
-if ! command -v $AUR_HELPER &> /dev/null
+if ! command -v $AUR_WRAPPER &> /dev/null
 then
     sudo pacman -S --needed --noconfirm base-devel
     cd ~/Downloads
