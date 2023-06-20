@@ -66,7 +66,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-aut
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 
 # enable systemd services
-services = ( "NetworkManager" "docker" "bluetooth" "pipewire" )
+services=( "NetworkManager" "docker" "bluetooth" "pipewire" )
 for service in "${services[@]}" 
 do
     :
@@ -74,7 +74,7 @@ do
 done
 
 # sym link config files
-home_dir_files = ( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" )
+home_dir_files=( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" )
 cd
 for file in "${home_dir_files[@]}" 
 do
@@ -82,7 +82,7 @@ do
     ln -s ~/$REPO_NAME/"$file" .
 done
 
-config_dir_files = ( "kitty" "neofetch" "qtile" "ranger" "rofi" )
+config_dir_files=( "kitty" "neofetch" "qtile" "ranger" "rofi" )
 cd ~/.config
 for file in "${config_dir_files[@]}" 
 do
