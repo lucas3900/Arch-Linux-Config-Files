@@ -62,8 +62,12 @@ done
 # setup shell
 chsh -s $(which zsh)
 curl -sS https://starship.rs/install.sh | sh
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
+if [ ! -d ~/.config/zsh/zsh-autosuggestions ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
+fi
+if [ ! -d ~/.config/zsh/zsh-syntax-highlighting ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
+fi
 
 # enable systemd services
 services=( "NetworkManager" "docker" "bluetooth" "pipewire" )
