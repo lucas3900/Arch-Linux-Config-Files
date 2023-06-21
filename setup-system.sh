@@ -44,7 +44,7 @@ then
 fi
 
 # install base system utils
-$AUR_WRAPPER -S --noconfirm xorg-server xorg-xinit xorg-xrandr networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit lxqt-policykit docker docker-compose pipewire lib32-pipewire pavucontrol wireplumber tldr man-pages man-db
+$AUR_WRAPPER -S --noconfirm xorg-server xorg-xinit xorg-xrandr arandr networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit docker docker-compose pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pavucontrol qpwgraph tldr man-pages man-db dunst betterlockscreen
 
 # system fonts and themes
 $AUR_WRAPPER -S --noconfirm noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk
@@ -79,6 +79,14 @@ do
     sudo systemctl enable --now "$service"
 done
 
+# enable systemd user services
+services=( "pipewire" "pipewire-pulse" )
+for service in "${services[@]}" 
+do
+    :
+    systemctl --user enable --now "$service"
+done
+
 # sym link config files
 home_dir_files=( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" ".zshrc" )
 cd
@@ -99,8 +107,9 @@ done
 # post script setup
 echo "Script Finished Successfully!"
 sleep 1
-echo "\nHere is some optional post install configuration"
-echo "\t- Launch lxapperance and change themes/cursors"
+echo "Here is some optional post install configuration"
+echo "  - Launch lxapperance and change themes/cursors"
+echo "  - Set betterlockscreen using `betterlockscreen -u ~/$REPO_NAME/lockscreen.png`"
 sleep 1
 
 while true; do

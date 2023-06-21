@@ -8,7 +8,7 @@ option3="reboot"
 option4="shutdown"
 
 # options passed into variable
-options="\uf023   $option0\n\uf842   $option1\n\uf9b1 $option2\n\u21ba   $option3\n\uf011   $option4"
+options="\uf023   $option0\n\Uf0343   $option1\n\Uf04b2 $option2\n\u21ba   $option3\n\uf011   $option4"
 chosen="$(echo -e "$options" | rofi -lines 5 -location 0 -theme-str 'window {width: 10%;} listview {lines: 5;}' -dmenu -p "Power")"
 choice="$(echo $chosen | head -n1 | awk  '{print $2;}')"
 
