@@ -99,7 +99,7 @@ cd
 for file in "${home_dir_files[@]}" 
 do
     :
-    ln -s ~/$REPO_NAME/"$file" .
+    ln -sf ~/$REPO_NAME/"$file" .
 done
 
 config_dir_files=( "kitty" "neofetch" "qtile" "ranger" "rofi" )
@@ -107,7 +107,7 @@ cd ~/.config
 for file in "${config_dir_files[@]}" 
 do
     :
-    ln -s ~/$REPO_NAME/"$file" .
+    ln -sf ~/$REPO_NAME/"$file" .
 done
 
 # post script setup
