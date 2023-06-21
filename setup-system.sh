@@ -62,13 +62,19 @@ done
 
 # setup shell
 chsh -s $(which zsh)
-curl -sS https://starship.rs/install.sh | sh
+if ! command -v starship &> /dev/null
+then
+    curl -sS https://starship.rs/install.sh | sh
+fi
+
 if [ ! -d ~/.config/zsh/zsh-autosuggestions ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
 fi
+
 if [ ! -d ~/.config/zsh/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 fi
+
 sudo usermod -aG tty,audio,video $USER
 
 # enable systemd services
@@ -109,7 +115,7 @@ echo "Script Finished Successfully!"
 sleep 1
 echo "Here is some optional post install configuration"
 echo "  - Launch lxapperance and change themes/cursors"
-echo "  - Set betterlockscreen using `betterlockscreen -u ~/$REPO_NAME/lockscreen.png`"
+echo "  - Set betterlockscreen using betterlockscreen -u ~/$REPO_NAME/lockscreen.png"
 sleep 1
 
 while true; do
