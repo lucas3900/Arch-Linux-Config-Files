@@ -12,8 +12,10 @@ export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-# scaling for QT applications like qutebrowser
+# scaling for high DPI
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 
 # extend path
 export PATH=/home/lucas/.local/bin:$PATH
