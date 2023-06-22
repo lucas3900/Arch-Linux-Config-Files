@@ -32,16 +32,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 xmodmap -e 'clear lock'
 xmodmap -e 'keycode 0x42=Escape'
-xrandr --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate left --output DP-0 --primary --mode 2560x1440 --pos 2160x1136 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
 
+xrandr --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate left --output DP-0 --primary --mode 2560x1440 --pos 2160x1136 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
 xrandr --output DP-0 --scale 1.5x1.5
-#feh --bg-fill --randomize "$SCRIPTPATH"/wallpapers* &
+
 volumeicon &
-blueberry-tray &
+blueman-applet &
 caffeine &
+nm-applet &
+
+exec /usr/bin/dunst &
 feh --no-fehbg --bg-fill  /home/lucas/.config/qtile/background.jpg &
-picom --config /home/lucas/.config/jonaburg-picom.conf &
+picom --config /home/lucas/Arch-Linux-Config-Files/picom.conf &
 exec qtile start
