@@ -94,7 +94,7 @@ do
 done
 
 # sym link config files
-home_dir_files=( ".vimrc" ".xinitrc" ".zlogin" ".zshenv" ".zshrc" )
+home_dir_files=( ".vimrc" ".xinitrc" ".Xresources"  ".zlogin" ".zshenv" ".zshrc" )
 cd
 for file in "${home_dir_files[@]}" 
 do

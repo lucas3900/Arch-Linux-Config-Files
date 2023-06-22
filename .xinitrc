@@ -41,7 +41,7 @@ xrandr --output DP-0 --scale 1.5x1.5
 
 volumeicon &
 blueman-applet &
-caffeine-ng &
+caffeine &
 nm-applet &
 
 exec /usr/bin/dunst &
