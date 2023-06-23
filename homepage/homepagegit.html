@@ -34,10 +34,10 @@
 
         #search {
             width: 100%;
-            height: 100vh;
-            background-color: #000000;
-            display: none;
-            position: absolute;
+            /* height: 100vh; */
+            /* background-color: #000000; */
+            display: flex;
+            /* position: absolute; */
             box-sizing: border-box;
             flex-direction: column;
             align-items: center;
@@ -45,14 +45,14 @@
         }
 
         #search-field {
-            width: 90%;
-            padding: .75em 1em;
-            box-sizing: border-box;
-            background-color: #000000;
-            border: solid 0px #000000;
+            /* width: 90%; */
+            padding: .5em .75em;
+            /* box-sizing: border-box; */
+            background-color: #D3D3D3;
+            border: solid 5px #000000;
             font-family: "Roboto Mono";
-            font-size: 4rem;
-            color: #f2f2f2;
+            font-size: 1.25rem;
+            color: #000000;
             outline: none;
             border-radius: 3px;
             margin-bottom: 1em;
@@ -136,22 +136,25 @@
 <body>
     <div class="container">
         <div id="clock"></div>
-        <div class="weather-container">
+        <!-- <div class="weather-container">
             <div class="row">
                 <div id="weather-description"class="inline"></div>
                 <div class="inline">-</div>
                 <div id="temp" class="inline"></div>
             </div>
+        </div> -->
+        <div id="search">
+            <input id="search-field" type="text" name="search-field" placeholder="Google Search..."/>
         </div>
         <div class="bookmark-container">
             <div class="bookmark-set">
                 <div class="bookmark-title">Email/Calendar</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://mail.google.com/mail/u/0/#inbox" target="_self">My Mail</a>
-                    <a class="bookmark" href="https://mail.google.com/mail/u/1/#inbox" target="_self">Ham Mail</a>
+                    <a class="bookmark" href="https://mail.google.com/mail/u/0/#inbox" target="_self">Personal Mail</a>
+                    <a class="bookmark" href="https://calendar.google.com/calendar/u/0/r?tab=mc" target="_self">Personal Calendar</a>
+                    <a class="bookmark" href="https://mail.google.com/mail/u/1/#inbox" target="_self">Work Mail</a>
+                    <a class="bookmark" href="https://calendar.google.com/calendar/u/1/r?tab=mc" target="_self">Work Calendar</a>
                     <a class="bookmark" href="https://mymail.optimum.net/appsuite/#!!&app=io.ox/mail&folder=default0/INBOX" target="_self">Optimum Mail</a>
-                    <a class="bookmark" href="https://calendar.google.com/calendar/u/0/r?tab=mc" target="_self">My Calendar</a>
-                    <a class="bookmark" href="https://calendar.google.com/calendar/u/1/r?tab=mc" target="_self">Ham Calendar</a>
                 </div>
             </div>
             <div class="bookmark-set">
@@ -161,41 +164,45 @@
                     <a class="bookmark" href="https://www.netflix.com/browse" target="_self">Netflix</a>
                     <a class="bookmark" href="https://www.hulu.com/hub/home" target="_self">Hulu</a>
                     <a class="bookmark" href="https://www.disneyplus.com/home" target="_self">Disney+</a>
-                    <a class="bookmark" href="https://duo.google.com/" target="_self">Duo</a>
                 </div>
             </div>
             <div class="bookmark-set">
                 <div class="bookmark-title">Software</div>
                 <div class="bookmark-inner-container">
                     <a class="bookmark" href="https://github.com/lucas3900" target="_self">GitHub</a>
+                    <a class="bookmark" href="https://tsu.atlassian.net/jira/software/projects/ANALYTICS/boards/123" target="_self">Jira</a>
                     <a class="bookmark" href="https://wiki.archlinux.org/" target="_self">Arch Wiki</a>
                     <a class="bookmark" href="https://aur.archlinux.org/packages/?O=0&SeB=nd&K=&outdated=&SB=p&SO=d&PP=50&do_Search=Go" target="_self">AUR Packages</a>
-                    <a class="bookmark" href="https://reddit.com/r/unixporn" target="_self">/r/unixporn</a>
-                    <a class="bookmark" href="https://reddit.com/r/linuxmemes" target="_self">/r/linuxmemes</a>
+                    <a class="bookmark" href="https://ir-aws-main.signin.aws.amazon.com/console" target="_self">AWS</a>
 
                 </div>
             </div>
             <div class="bookmark-set">
-                <div class="bookmark-title">Money</div>
+                <div class="bookmark-title">Finances</div>
                 <div class="bookmark-inner-container">
-                    <!-- Copy Financial Bookmarks here -->
                 </div>
             </div>
             <div class="bookmark-set">
-            <div class="bookmark-title">School</div>
+            <div class="bookmark-title">Misc</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://blackboard.hamilton.edu/webapps/login/" target="_self">Blackboard</a>
-                    <a class="bookmark" href="https://www.gradescope.com/" target="_self">Gradescope</a>
-                    <a class="bookmark" href="https://webadvisor.hamilton.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=2586590138" target="_self">Webadvisor</a>
-                    <a class="bookmark" href="https://discord.com/channels/@me" target="_self">Discord</a>
-                    <a class="bookmark" href="https://app.slack.com/client/T02CDQJFJ9Y/C02DSGJUMU6" target="_self">Slack</a>
-                    <a class="bookmark" href="https://www.onenote.com/notebooks?auth=2&nf=1" target="_self">OneNote</a>
+                    <a class="bookmark" href="https://www.amazon.com/" target="_self">Amazon</a>
+                    <a class="bookmark" href="https://duo.google.com/" target="_self">Duo</a>
+                    <a class="bookmark" href="https://www.slack.com" target="_self">Slack</a>
+                    <a class="bookmark" href="https://drive.google.com/drive/u/0/my-drive" target="_self">Personal Drive</a>
+                    <a class="bookmark" href="https://drive.google.com/drive/u/1/my-drive" target="_self">Work Drive</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // google search on enter key
+        document.getElementById("search-field").addEventListener("keydown",  event => { 
+            if (event.keyCode === 13) {
+                var val = document.getElementById("search-field").value;
+                window.open("https://google.com/search?q=" + val);
+            }
+        });
         // Get current time and format
         getTime = () => {
             let date = new Date(),
@@ -210,23 +217,23 @@
         }
 
         window.onload = () => {
-            let xhr = new XMLHttpRequest();
-            // Request to open weather map
-            let city = 'Bronx'
-            xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=22b8c2bc63839bf5b315bf9b80141b40`);
-            xhr.onload = () => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        let json = JSON.parse(xhr.responseText);
-                        console.log(json);
-                        document.getElementById("temp").innerHTML = json.main.temp.toFixed(0) + " F";
-                        document.getElementById("weather-description").innerHTML = city + ": " + json.weather[0].description;
-                    } else {
-                        console.log('error msg: ' + xhr.status);
-                    }
-                }
-            }
-            xhr.send();
+            // let xhr = new XMLHttpRequest();
+            // // Request to open weather map
+            // let city = 'Bronx'
+            // xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=22b8c2bc63839bf5b315bf9b80141b40`);
+            // xhr.onload = () => {
+            //     if (xhr.readyState === 4) {
+            //         if (xhr.status === 200) {
+            //             let json = JSON.parse(xhr.responseText);
+            //             console.log(json);
+            //             document.getElementById("temp").innerHTML = json.main.temp.toFixed(0) + " F";
+            //             document.getElementById("weather-description").innerHTML = city + ": " + json.weather[0].description;
+            //         } else {
+            //             console.log('error msg: ' + xhr.status);
+            //         }
+            //     }
+            // }
+            // xhr.send();
             // Set up the clock
             document.getElementById("clock").innerHTML = getTime();
             // Set clock interval to tick clock
