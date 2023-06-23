@@ -43,9 +43,9 @@ def get_application_keys():
 
 def get_system_keys():
     return [
-        Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")), 
-        Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
-        Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
+        Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")), 
+        Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ +5%")),
+        Key([], "XF86AudioLowerVolume", lazy.spawn("pactl -- set-sink-volume @DEFAULT_SINK@ -5%")),
         Key([MOD, "control"], "r", lazy.restart(), desc="Restart qtile"),
         Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
         Key([MOD], "n", lazy.layout.normalize(), desc="normalize layout"),
