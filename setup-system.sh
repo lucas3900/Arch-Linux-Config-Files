@@ -44,10 +44,10 @@ then
 fi
 
 # install base system utils
-$AUR_WRAPPER -S --noconfirm xorg-server xorg-xinit xorg-xrandr arandr networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit docker docker-compose pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pavucontrol qpwgraph tldr man-pages man-db dunst betterlockscreen volumeicon blueman caffeine-ng network-manager-applet
+$AUR_WRAPPER -S --noconfirm xorg-server xorg-xinit xorg-xrandr arandr networkmanager kitty qtile python-psutil python-requests brave-bin rofi zsh exa picom ffmpeg feh mpv lxappearance neofetch htop python-pip bluez bluez-utils polkit docker docker-compose pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pavucontrol qpwgraph tldr man-pages man-db dunst betterlockscreen volumeicon blueman caffeine-ng network-manager-applet libva-utils
 
 # system fonts and themes
-$AUR_WRAPPER -S --noconfirm noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk
+$AUR_WRAPPER -S --noconfirm noto-fonts-emoji ttf-hack-nerd dracula-gtk-theme breeze-gtk xcursor-breeze breeze-icons
 
 # ask to install nvidia
 while true; do
