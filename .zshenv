@@ -1,4 +1,4 @@
-#export LIBVA_DRIVER_NAME='vdpau'
+export LIBVA_DRIVER_NAME='nvidia'
 #export VDPAU_DRIVER='nvidia'
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_CONFIG_HOME="$HOME"/.config
