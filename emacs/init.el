@@ -420,8 +420,13 @@
 
 (use-package flycheck
   :config
-  (add-hook 'typescript-mode-hook 'flycheck-mode))
+  (add-hook 'typescript-mode-hook 'flycheck-mode)
+  (setq flycheck-display-errors-delay 0.1))
 (global-flycheck-mode)
+
+(use-package flycheck-inline)
+(with-eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
 
 (defun setup-tide-mode ()
   (interactive)
@@ -540,7 +545,7 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
   :config
-  (setq company-show-numbers t)
+  (setq company-show-quick-access t)
   (setq company-tooltip-align-annotations t)
   (setq company-tooltip-flip-when-above t))
 (add-hook 'after-init-hook 'global-company-mode)
@@ -561,7 +566,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company-quickhelp tide ag flycheck lsp-ui lsp-mode diff-hl elpy vterm which-key use-package tree-sitter-langs smex python-mode projectile-rails peep-dired neotree markdown-mode magit ivy-rich general gcmh evil-collection emojify dumb-jump doom-themes doom-modeline dired-open dashboard counsel company all-the-icons-dired)))
+   '(flycheck-inline company-quickhelp tide ag flycheck lsp-ui lsp-mode diff-hl elpy vterm which-key use-package tree-sitter-langs smex python-mode projectile-rails peep-dired neotree markdown-mode magit ivy-rich general gcmh evil-collection emojify dumb-jump doom-themes doom-modeline dired-open dashboard counsel company all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
