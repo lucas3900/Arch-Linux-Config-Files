@@ -17,7 +17,7 @@ fi
 # global vars
 REPO_NAME=$(basename `git rev-parse --show-toplevel`)
 AUR_WRAPPER=paru  # 'paru' or 'yay'
-NVIDIA_PACKAGES="nvidia-lts lib32-nvidia-utils nvidia-utils nvidia-settings"  # ignore if no nvidia
+NVIDIA_PACKAGES="nvidia-lts lib32-nvidia-utils nvidia-utils nvidia-settings libva-nvidia-driver"  # ignore if no nvidia
 
 # needed directories
 mkdir -p $HOME/Documents
