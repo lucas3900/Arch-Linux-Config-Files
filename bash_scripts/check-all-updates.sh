@@ -1,10 +1,12 @@
 #!/bin/sh
 
+AUR_WRAPPER=paru
+
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
     updates_arch=0
 fi
 
-if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l ); then
+if ! updates_aur=$($AUR_WRAPPER -Qum 2> /dev/null | wc -l ); then
     updates_aur=0
 fi
 

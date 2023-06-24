@@ -35,6 +35,10 @@ alias startvirtnet='sudo virsh net-start default'
 alias hx='helix'
 alias emacs="emacsclient -a '' -c"
 
+# keybindings
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
+
 # FUNCTIONS
 function force_pull() {
     git fetch --all

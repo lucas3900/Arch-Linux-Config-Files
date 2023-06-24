@@ -1,6 +1,8 @@
 #!/bin/sh
 
-if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l ); then
+AUR_WRAPPER=paru
+
+if ! updates_aur=$($AUR_WRAPPER -Qum 2> /dev/null | wc -l ); then
     updates_aur=0
 fi
 
