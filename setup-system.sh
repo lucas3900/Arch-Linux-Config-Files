@@ -75,7 +75,8 @@ if [ ! -d ~/.config/zsh/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 fi
 
-sudo usermod -aG tty,audio,video $USER
+sudo groupadd docker
+sudo usermod -aG tty,audio,video,docker $USER
 
 # enable systemd services
 services=( "NetworkManager" "docker" "bluetooth" )
