@@ -15,7 +15,7 @@ else
 fi
 
 # ALIASES
-alias ls='exa -lah --color=always --group-directories-first --git --no-user --icons'
+alias ls='eza -lah --color=always --group-directories-first --git --no-user --icons'
 # delete orphaned programs
 alias cleanSystem='yay -Rns $(yay -Qtdq)'
 # ask before deleteing/ovewriting

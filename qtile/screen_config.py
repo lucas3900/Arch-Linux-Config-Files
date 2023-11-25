@@ -22,7 +22,7 @@ COLORS = dict(
 )
 WIDGET_DEFAULTS = dict(
     font = "Hack Nerd Font Mono",
-    fontsize = 30,
+    fontsize = 20,
 )
 TERMINAL = 'kitty'
 BROWSER = 'brave'
@@ -166,7 +166,7 @@ def get_net():
             background = COLORS["orange"],
             foreground = COLORS["white"], 
             update_interval=10,
-            format="{down} ↓↑ {up}",
+            format="{down:0.2f}{down_suffix} ↓↑ {up:0.2f}{up_suffix}",
             interface="enp2s0"
         ),
         get_right_semicircle("orange"),
@@ -298,7 +298,7 @@ def get_screen_one():
                 widget.Spacer(),
                 *get_clock(),
                 widget.Spacer(),
-                *get_system_temp(),
+                # *get_system_temp(),
                 get_widget_sep(),
                 *get_system_graphs(),
                 get_widget_sep(),

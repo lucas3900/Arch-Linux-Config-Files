@@ -16,6 +16,7 @@ def get_layouts():
         layout.Matrix(**LAYOUT_PARAMS),
         layout.Floating(),
         layout.VerticalTile(**LAYOUT_PARAMS),
+        layout.Max(),
     ]
 
 
