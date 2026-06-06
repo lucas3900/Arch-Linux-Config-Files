@@ -143,9 +143,12 @@ configuration {
     text-color: @foreground;
 }
 listview {
-  lines: 8;
-  columns: 2; 
+  lines: 10;
+  columns: 1; 
 }
 window {
-    width: 35%;
+    width: 40%;
+    height: 40%;
+    // transparency: "real";
+    // background-color: rgba(0, 0, 0, 0.75); 
 }

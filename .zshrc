@@ -2,28 +2,42 @@
 
 unsetopt BEEP
 setopt appendhistory
+
+# Initialize completion system
 autoload -Uz compinit
-compinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+# Set up completion cache directory
+ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-$ZSH_VERSION"
+
+# Create cache directory if it doesn't exist
+[[ -d "${ZSH_COMPDUMP:h}" ]] || mkdir -p "${ZSH_COMPDUMP:h}"
+
+# Load and initialize completion system
+# Check if cache is older than 24 hours and regenerate if needed
+if [[ -n ${ZSH_COMPDUMP}(#qN.mh+24) ]]; then
+  compinit -d "$ZSH_COMPDUMP"
+else
+  compinit -C -d "$ZSH_COMPDUMP"
+fi
 
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='code'
+  export EDITOR='nvim'
 fi
+
+# Ranger configuration - prevent loading default rc.conf
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # ALIASES
 alias ls='eza -lah --color=always --group-directories-first --git --no-user --icons'
 # delete orphaned programs
-alias cleanSystem='yay -Rns $(yay -Qtdq)'
+alias cleanSystem='paru -Rns $(yay -Qtdq)'
 # ask before deleteing/ovewriting
 alias mv='mv -i'
 # launch bitwarden rofi client with my rofi settings
-alias bwmenu='bwmenu -- -lines 1 -show run -columns 20 -width 100 -location 2'
-# generate password and copy it to clipboard
-alias password='bw generate -ulns --length 12 | xclip -selection clipboard'
 alias open='xdg-open'
 # enable hardware acceleration in qutebrowser
 alias qutebrowser='qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4'
@@ -32,8 +46,6 @@ alias bashtozsh='chsh -s $(which zsh)'
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
 alias startvirtnet='sudo virsh net-start default'
-alias hx='helix'
-alias emacs="emacsclient -a '' -c"
 
 # keybindings
 bindkey '\e[H' beginning-of-line
@@ -87,4 +99,4 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # run neofetch on startup because I'm cool
-neofetch
+fastfetch
