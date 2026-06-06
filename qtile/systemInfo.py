@@ -9,7 +9,7 @@ def getFreeDiskSpace() -> str:
 
 
 def getNumUpdates() -> str:
-    x = str(check_output("yay -Syup | wc -l", shell=True).strip(), "utf-8")
+    x = str(check_output("paru -Syup | wc -l", shell=True).strip(), "utf-8")
     return str(int(x) - 5)
 
 

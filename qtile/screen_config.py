@@ -29,19 +29,19 @@ BROWSER = 'brave'
 BASH_SCRIPT_DIR = '/home/lucas/Arch-Linux-Config-Files/bash_scripts'
 
 def update_packages() -> None:
-    qtile.cmd_spawn(TERMINAL + ' -e yay -Syu')
+    qtile.spawn(TERMINAL + ' -e paru -Syu')
 
 
 def launch_calendar() -> None:
-    qtile.cmd_spawn(BROWSER + ' --target=window google.com/calendar')
+    qtile.spawn(BROWSER + ' --target=window google.com/calendar')
 
 
 def launch_htop() -> None:
-    qtile.cmd_spawn(TERMINAL + " -e htop")
+    qtile.spawn(TERMINAL + " -e htop")
 
 
 def launch_weather() -> None:
-    qtile.cmd_spawn(BROWSER + " --target=window google.com/search?q=weather")
+    qtile.spawn(BROWSER + " --target=window google.com/search?q=weather")
 
 
 def get_num_updates() -> str:
@@ -95,7 +95,7 @@ def get_xkill():
             fontsize=50,
             foreground=COLORS["red"],
             background=COLORS["transparent"],
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(TERMINAL + " --start-as=minimized xkill")}
+            mouse_callbacks={'Button1': lambda: qtile.spawn(TERMINAL + " --start-as=minimized xkill")}
         ), 
     ]
 
@@ -103,10 +103,11 @@ def get_xkill():
 def get_group_box(visible_groups=[]):
     return [
         get_left_semicircle("purple"),
-        widget.CurrentLayoutIcon(
+        widget.CurrentLayout(
             padding = 3,
             foreground = COLORS["white"],
-            background = COLORS["purple"]
+            background = COLORS["purple"],
+            icon_first=True
         ),
         get_widget_sep(padding=30, background="purple"),
         widget.GroupBox(
@@ -286,7 +287,7 @@ def get_systray():
 def get_screen_one():
     return Screen(
         top=bar.Bar(
-            [ 
+            [
                 *get_xkill(),
                 get_widget_sep(),
                 *get_group_box(visible_groups=["1", "2", "3", "4", "5"]),
@@ -329,43 +330,29 @@ def get_weather():
     ]
 
 
-def get_stock_info():
-    return [
-        get_left_semicircle("orange"),
-        widget.GenPollText(
-            **WIDGET_DEFAULTS,
-            func=stock_info.get_random_stock_price,
-            update_interval=30,
-            padding=7,
-            mouse_callbacks={},
-            background=COLORS["orange"]
-        ),
-        get_right_semicircle("orange")
-    ]
-
-
 def get_screen_two():
     return Screen(
         top=bar.Bar(
-            [ 
+            [
                 *get_xkill(),
                 get_widget_sep(),
-                *get_group_box(visible_groups=["6", "7"]),
+                *get_group_box(visible_groups=["6", "7", "8", "9"]),
                 widget.Spacer(),
                 *get_clock(),
                 widget.Spacer(),
                 *get_net(),
                 #*get_stock_info(),
-            ], 
-            60, 
+            ],
+            60,
             opacity=1,
-            margin=[10,10,4,10], 
+            margin=[10,10,4,10],
             background=COLORS["transparent"]
         ),
     )
 
 
 def get_screens():
+    # NOTE: if screens switch, reverse the list
     return [get_screen_one(), get_screen_two()]
 
 

@@ -1,0 +1,9 @@
+[Unit]
+Description=Push-ups Notification
+
+[Service]
+Type=oneshot
+User=lucas
+Group=lucas
+ExecStart=/bin/bash -c 'DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus /usr/bin/notify-send "PUSH-UPs NOW 💪"'
+
