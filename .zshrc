@@ -2,8 +2,8 @@
 
 unsetopt BEEP
 setopt appendhistory
+fpath=(~/.config/zsh/completion $fpath)
 autoload -Uz compinit
-compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 
@@ -15,7 +15,8 @@ else
 fi
 
 # ALIASES
-alias ls='eza -lah --color=always --group-directories-first --git --no-user --icons'
+alias remove-whitespace='for f in *\ *; do mv "$f" "${f// /_}"; done'
+alias ls='exa -lah --color=always --group-directories-first --git --no-user --icons'
 # delete orphaned programs
 alias cleanSystem='yay -Rns $(yay -Qtdq)'
 # ask before deleteing/ovewriting
@@ -34,6 +35,20 @@ alias grep='grep --color=auto'
 alias startvirtnet='sudo virsh net-start default'
 alias hx='helix'
 alias emacs="emacsclient -a '' -c"
+alias nvidia-settings="nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
+alias gittop='cd $(git rev-parse --show-toplevel)'
+alias git-submod-update='git submodule foreach git pull origin'
+alias kitten-ssh='kitty +kitten ssh'
+alias vpn-up='sudo tailscale up --accept-routes'
+alias vpn-down='sudo tailscale down'
+alias docker-stop-all='docker stop $(docker ps -a -q)'
+alias docker-rm-all='docker rm $(docker ps -a -q)'
+alias tc-vpn-up='openvpn3 session-start --config /home/lucas/work/napster/vpn/profile-userlocked.ovpn'
+alias tc-vpn-down='openvpn3 session-manage --config /home/lucas/work/napster/vpn/profile-userlocked.ovpn --disconnect'
+alias tc-vpn-clean='openvpn3 session-manage --cleanup'
+alias claude-napster='CLAUDE_CONFIG_DIR=~/.claude-napster /home/lucas/.local/bin/claude'
+# alias claude-harmoneyes='CLAUDE_CONFIG_DIR=~/.claude /home/lucas/.local/bin/claude'
+# alias claude="echo 'Use specific commands: claude-napster or claude-harmoneyes'"
 
 # keybindings
 bindkey '\e[H' beginning-of-line
@@ -79,12 +94,28 @@ ex ()
   fi
 }
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# add ruby to path
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# export PATH="$PATH:$GEM_HOME/bin"
+
 # change directory color to purple in ls/exa
 EXA_COLORS=$EXA_COLORS:'di=0;35:' ; export EXA_COLORS
 
 eval "$(starship init zsh)"
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /etc/profile.d/google-cloud-cli.sh 
 
 # run neofetch on startup because I'm cool
 neofetch
+
+# bun completions
+[ -s "/home/lucas/.bun/_bun" ] && source "/home/lucas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

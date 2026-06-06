@@ -1,7 +1,7 @@
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
-MOD = "mod4"
+MOD = "mod1"
 TERMINAL = 'kitty'
 BROWSER = 'brave'
 

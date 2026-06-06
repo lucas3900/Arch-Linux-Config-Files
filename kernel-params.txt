@@ -1,0 +1,2 @@
+# Seems to fix GPU Errors
+pci=check_enable_amd_mmconf idle=nomwait nvidia_drm.modeset=1 

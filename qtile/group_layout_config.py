@@ -1,14 +1,15 @@
-from libqtile import layout 
+from libqtile import layout
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
-LAYOUT_PARAMS =  {
+LAYOUT_PARAMS = {
     "margin": 10,
     "border_width": 6,
     "single_border_width": 6,
     "border_focus": "#007fdf"
 }
-MOD = "mod4"
+MOD = "mod1"
+
 
 def get_layouts():
     return [
@@ -39,25 +40,29 @@ def get_floating_rules():
         Match(wm_class='ssh-askpass'),
         Match(wm_class='zoom.real '),
         Match(wm_class='zoom '),
+        Match(wm_class='zoom'),
+        Match(wm_class='"zoom", "zoom"'),
         Match(title='Save File'),
     ])
 
 
 def go_to_group(group):
+    # NOTE: if screens switch, switch the focus_screen numbers
     def f(qtile):
         if group in "12345":
             qtile.focus_screen(0)
-            qtile.groups_map[group].cmd_toscreen()
+            qtile.groups_map[group].toscreen(toggle=False)
         else:
             qtile.focus_screen(1)
-            qtile.groups_map[group].cmd_toscreen()
+            qtile.groups_map[group].toscreen(toggle=False)
 
     return f
 
 
 def get_groups_and_layouts(keys):
     layouts = get_layouts()
-    group_nums = "1234567"
+    # group_nums = [str(i) for i in range(1, 11)]
+    group_nums = "123456789"
     groups = []
     for i in group_nums:
         if i in "12345":
